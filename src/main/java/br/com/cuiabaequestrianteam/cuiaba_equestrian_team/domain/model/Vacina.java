@@ -1,9 +1,6 @@
 package br.com.cuiabaequestrianteam.cuiaba_equestrian_team.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -15,6 +12,10 @@ public class Vacina {
     private Long id;
     private String nome;
     private LocalDate data;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cavalo", nullable = false)
+    private Cavalo cavalo;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class Vacina {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public Cavalo getCavalo() {
+        return cavalo;
+    }
+
+    public void setCavalo(Cavalo cavalo) {
+        this.cavalo = cavalo;
     }
 }

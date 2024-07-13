@@ -22,10 +22,10 @@ public class Cavalo {
     @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente proprietario;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cavalo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ParticipacaoProva> participacaoProvas;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cavalo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Vacina> vacinas;
 
     public Long getId() {
